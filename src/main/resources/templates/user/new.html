@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>New user</title>
+</head>
+<body>
+<form th:action="@{/user}" th:method="POST" th:object="${user}">
+    <label for="name">Введите имя:</label>
+    <input id="name" th:field="*{name}" type="text"/>
+    <div style="color:red" th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Name Error</div>
+    <br/>
+    <label for="surname">Введите фамилию:</label>
+    <input id="surname" th:field="*{surname}" type="text"/>
+    <div style="color:red" th:errors="*{surname}" th:if="${#fields.hasErrors('surname')}">Surname Error</div>
+    <br/>
+    <label for="yearOfBirth">Введите год рождения: </label>
+    <input id="yearOfBirth" th:field="*{yearOfBirth}" type="text"/>
+    <div style="color:red" th:errors="*{yearOfBirth}" th:if="${#fields.hasErrors('yearOfBirth')}">Year of birth Error
+    </div>
+    <br/>
+
+    <label for="role">Укажите роль пользователя</label>
+    <select id="role" th:field="*{role}">
+        <option th:each="role : ${T(web.models.Role).values()}"
+                th:text="${role}"
+                th:value="${role}">
+        </option>
+    </select>
+    <div style="color:red" th:errors="*{role}" th:if="${#fields.hasErrors('role')}">Role Error</div>
+    <br/>
+    <input type="submit" value="Создать пользователя"/>
+</form>
+</body>
+</html>
