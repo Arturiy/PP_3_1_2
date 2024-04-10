@@ -6,13 +6,10 @@ import web.models.User;
 
 import java.util.List;
 
-
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-
     List<User> getUsersByNameAndSurname(String name, String surname);
-
 }
 
 

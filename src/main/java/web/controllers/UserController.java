@@ -10,7 +10,6 @@ import web.models.User;
 import web.services.UserService;
 import web.util.UserValidator;
 
-
 @Controller
 @RequestMapping("/user")
 public class UserController {

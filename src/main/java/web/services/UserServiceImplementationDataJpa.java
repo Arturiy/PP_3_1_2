@@ -9,13 +9,11 @@ import web.repositories.UserRepository;
 import java.util.List;
 import java.util.Optional;
 
-
 @Service
 @Transactional(readOnly = true)
 public class UserServiceImplementationDataJpa implements UserService {
 
     private final UserRepository userRepository;
-
 
     @Autowired
     public UserServiceImplementationDataJpa(UserRepository userRepository) {
@@ -51,6 +49,4 @@ public class UserServiceImplementationDataJpa implements UserService {
     public void delete(int id) {
         userRepository.deleteById(id);
     }
-
-
 }
